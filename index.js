@@ -2,22 +2,25 @@ const Airtable = require('airtable');
 
 const base = Airtable.base('appQ8QiUpCs67Re58');
 
-base('Table 1').select({
-    // Selecting the first 3 records in Grid view:
-    maxRecords: 3,
-    view: "Grid view"
-}).eachPage(function page(records, fetchNextPage) {
-    // This function (`page`) will get called for each page of records.
+const baseString = 'abcdefghigklmnopqrstuvwxyz';
 
-    records.forEach(function(record) {
-        console.log('Retrieved', record.get('Name'));
+let s = baseString;
+
+for (let i = 0; i< 100; i++) {
+    s += baseString;
+}
+
+
+let count = 0;
+
+let interval = setInterval(() => {
+    count ++;
+    base('Table 1').create({"Name": s}, function(err, record) {
+        if (err) { console.error(err); return; }
+        console.log(record.getId());
     });
 
-    // To fetch the next page of records, call `fetchNextPage`.
-    // If there are more records, `page` will get called again.
-    // If there are no more records, `done` will get called.
-    fetchNextPage();
-
-}, function done(err) {
-    if (err) { console.error(err); return; }
-});
+    if (count > 1000) {
+        clearInterval(interval)
+    }
+}, 250);

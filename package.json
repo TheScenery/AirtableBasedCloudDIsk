@@ -1,0 +1,22 @@
+{
+  "name": "airtablebasedclouddisk",
+  "version": "1.0.0",
+  "description": "Use Airtable like a cloud disk with it's free account and API",
+  "main": "index.js",
+  "scripts": {
+    "start": "source ./setAPIKey.sh && node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheScenery/AirtableBasedCloudDIsk.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheScenery/AirtableBasedCloudDIsk/issues"
+  },
+  "homepage": "https://github.com/TheScenery/AirtableBasedCloudDIsk#readme",
+  "dependencies": {
+    "airtable": "^0.5.10"
+  }
+}

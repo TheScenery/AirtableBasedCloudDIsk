@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/TheScenery/AirtableBasedCloudDIsk#readme",
   "dependencies": {
-    "airtable": "^0.5.10"
+    "airtable": "^0.7.2"
   }
 }
